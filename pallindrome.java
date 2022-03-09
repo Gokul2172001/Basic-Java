@@ -1,19 +1,19 @@
 //Java program for check pallindrome in the number.
-import java.util.Scanner;
+import java.util.*;
 class pallindrome
 {
-	private static Scanner sc;
+	private static Scanner input;
 	public static void main(String args[])
 	{
-		int number,temp,remainder,reverse=0;
-		sc=new Scanner(System.in);
+		int n,temp,rem,rev=0;
+		input=new Scanner(System.in);
 		System.out.println("Enter the number you wish");
-		number=sc.nextInt();
-		temp=number;
+		n=input.nextInt();
+		temp=n;
 		while(temp>0)
 		{
-			remainder=temp%10;
-			reverse=reverse*10+remainder;
+			rem=temp%10;
+			rev=rev*10+rem;
 			temp=temp/10;
 		}
 		System.out.println("reversed number of you entered.."+reverse);
