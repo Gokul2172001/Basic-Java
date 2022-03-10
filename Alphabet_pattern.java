@@ -1,17 +1,17 @@
-import java.util.*;
-public class permidpatern {
+import java.util.Scanner;
+public class Alphabet_pattern {
 	public static Scanner input;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int i,j,n,k;
+		int j,n,i,alphabet=64;
 		Scanner input=new Scanner(System.in);
 		n=input.nextInt();
 		for(i=1;i<=n;i++) {
-			for(k=i;k<n;k++) 
-				System.out.print(" ");
-			for(j=1;j<=i;j++)
-			System.out.println("$");
-	}
+			for(j=1;j<=i;j++) {
+				System.out.print((char) (alphabet+j));
+			}
+			System.out.println();
+		}
 
 }
-}
+}	
