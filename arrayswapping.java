@@ -18,9 +18,10 @@ public class arrayswapping {
 		//arr[0]=arr[0]+arr[a-1];
 		//arr[a-1]=arr[0]-arr[a-1];
 		//arr[0]=arr[0]-arr[a-1];
-		arr[2]=arr[2]*arr[a-3];
-		arr[a-3]=arr[2]/arr[a-3];
-		arr[2]=arr[2]/arr[a-3];
+		//arr[2]=arr[2]*arr[a-3];
+		//arr[a-3]=arr[2]/arr[a-3];
+		//arr[2]=arr[2]/arr[a-3];
+		
 		for(int i=0;i<a;i++) {
 			System.out.print(arr[i]+" ");
 		}
