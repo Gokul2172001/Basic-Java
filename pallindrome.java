@@ -17,7 +17,7 @@ class pallindrome
 			temp=temp/10;
 		}
 		System.out.println("reversed number of you entered.."+reverse);
-		if(number==reverse)
+		if(n==reverse)
 		{
 			System.out.println("The entered numbers are a palindrome.");
 		}
