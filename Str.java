@@ -5,7 +5,12 @@ public class Str {
 		// TODO Auto-generated method stub
 		Scanner input=new Scanner(System.in);
 		String t=input.nextLine();
-		String tr=input.nextLine();
+		//String tr=input.nextLine();
+		//String tr="";
+		//String trp=input.nextLine();
+		//String trpl=input.nextLine();
+		//String temp="";
+		//String tr=input.nextLine();
 		//int a=input.nextInt();
 		//int b=input.nextInt();
 				//System.out.println(t==tr);
@@ -25,9 +30,19 @@ public class Str {
 		//System.out.println(t.length());
 		//tr=t.replace('e','o');
 		//tr=t.toLowerCase();
-		tr=t.toUpperCase();
-		System.out.println(tr);
-		
+		//tr=t.toUpperCase();
+		//System.out.println(tr);
+		for(int i=0;i<t.length();i++) {
+			
+		}
+	
+		//trp=trp+tr;
+		//System.out.println();
+		//System.out.print(tr);
+		//System.out.print(" "+trp);
+		//temp=t;
+		//t=trpl;
+		//trpl=temp;
+		System.out.println(t);
 	}
-
 }
