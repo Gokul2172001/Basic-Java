@@ -2,7 +2,7 @@ public class polynomial_array_addition {
 	static int max(int m, int n) {
 		return (m>n)?m:n;
 	}
-	static int add(int a[], int b[], int m,int n) {
+	static int[] add(int a[], int b[], int m,int n) {
 		int size=max(m,n);
 		int sum[]=new int[size];
 		for(int i=0;i<m;i++) {
@@ -18,10 +18,11 @@ static void poly(int c[], int d) {
 		System.out.print(c[i]);
 		if(i!=0) {
 			System.out.print("x^"+i);
+			if(i!=d) {
+				System.out.print("+");
+			}
 		}
-		if(i!=d) {
-			System.out.print("+");
-		}
+		
 	}
 }
 
@@ -36,10 +37,11 @@ static void poly(int c[], int d) {
 		System.out.println();
 		System.out.println("Second polynomial equation is:");
 		poly(b,n);
-		//int sum[]=add(a,b,m,n);
-		//int size=max(m,n);
-		//System.out.println("Addition of polynomial equation is:");
-		//poly(sum,size);
+		int sum[]=add(a,b,m,n);
+		int size=max(m,n);
+		System.out.println();
+		System.out.println("Addition of polynomial equation is:");
+		poly(sum,size);
 	}
 
 }
