@@ -27,7 +27,6 @@ static void poly(int c[], int d) {
 }
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int a[]= {7,5,6};
 		int b[]= {8,3,2};
 		int m=a.length;
