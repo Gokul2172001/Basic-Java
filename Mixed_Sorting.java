@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Mixed_Sorting {
 	public static Scanner input;
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		input=new Scanner(System.in);
 		int num=input.nextInt();
 		int arr[]=new int[num];
