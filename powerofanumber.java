@@ -2,6 +2,7 @@ import java.util.*;
 public class powerofanumber {
 	public static Scanner power;
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		int base,exponent;
 		int result=1;
 		power=new Scanner(System.in);
