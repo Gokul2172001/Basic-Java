@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class Majority_Element_count {
 	public static Scanner input;
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		input=new Scanner(System.in);
 		char majority=' ';
 		int count=0,con=0;

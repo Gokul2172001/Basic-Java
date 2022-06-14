@@ -2,7 +2,8 @@
 public class MultipleStrings {
 
 	public static void main(String[] args) {
- String s="hoe are you	hello grtgdg	world";
+		// TODO Auto-generated method stub
+ String s="hoe are you	gdhr grtgdg	grg";
   //String st=s.replaceAll(" ", "");
   String[] st1=s.split(" ");
   for(int i=0;i<st1.length;i++)
