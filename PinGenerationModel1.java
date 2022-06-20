@@ -1,7 +1,6 @@
 import java.util.*;
 public class PinGenerationModel1 {
 		public static void main(String[] args) {
-			// TODO Auto-generated method stub
 			Scanner input=new Scanner(System.in);
 			int inp1=input.nextInt();
 			int inp2=input.nextInt();
@@ -27,9 +26,6 @@ public class PinGenerationModel1 {
 			for(int i=0;i<s.length();i++) {
 				System.out.print(arr[i]+" ");
 			}
+		
 		}
-			
-
-	
-
 }

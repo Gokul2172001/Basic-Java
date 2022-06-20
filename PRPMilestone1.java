@@ -23,7 +23,7 @@ public class PRPMilestone1 {
 		while(temp!=0) {
 			arr[i]=temp%10;
 			temp=temp/10;
-			i=i+1;
+			i++;
 		}
 		Arrays.sort(arr);
 		return arr[3];
