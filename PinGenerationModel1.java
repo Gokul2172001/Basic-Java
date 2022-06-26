@@ -14,7 +14,6 @@ public class PinGenerationModel1 {
 			//System.out.println(s2);
 			//System.out.println(s3);
 			int arr[]=new int[s.length()];
-			//int j=Arrays.toString(arr);
 			System.out.println(s);			
 			for(int i=0;i<s.length();i++) {
 				arr[i]=s.charAt(i);
