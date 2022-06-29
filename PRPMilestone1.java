@@ -7,6 +7,7 @@ public class PRPMilestone1 {
 		int inp1=input.nextInt();
 		int inp2=input.nextInt();
 		int inp3=input.nextInt();
+		int inp4=input.nextInt();
 		int arr1[]=new int[4];
 		int arr2[]=new int[4];
 		int arr3[]=new int[4];
@@ -14,7 +15,7 @@ public class PRPMilestone1 {
 		obj.validate(inp1,arr1);
 		obj.validate(inp2,arr2);
 		obj.validate(inp3,arr3);
-		int value=((arr1[3]+arr2[3]+arr3[3])-(arr1[0]+arr2[0]+arr3[0]));
+		int value=((arr1[0]*arr2[3]*arr3[0])-inp4);
 		System.out.println(value);
 	}
 		public static int validate (int temp , int[] arr)
