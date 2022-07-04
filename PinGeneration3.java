@@ -1,5 +1,6 @@
 import java.util.*;
 public class PinGeneration3 {
+	public static Scanner input;
 	public static void main(String[] args) {
 		Scanner input=new Scanner(System.in);
 		int count=0,n;
