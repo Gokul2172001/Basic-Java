@@ -16,7 +16,7 @@ public class PinGeneration3 {
 				}
 			}
 		}
-		System.out.println(count);
+		System.out.println("The number of the values are:"+count);
 	}
 
 }
