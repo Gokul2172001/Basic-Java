@@ -16,7 +16,8 @@ public class PinGeneration3 {
 				}
 			}
 		}
-		System.out.print(count);
+		System.out.println(count+",");
+		
 	}
 
 }
