@@ -1,8 +1,9 @@
 import java.util.*;
 public class PinGeneration3 {
-	public static Scanner input;
+
 	public static void main(String[] args) {
-		input=new Scanner(System.in);
+		// TODO Auto-generated method stub
+		Scanner input=new Scanner(System.in);
 		int count=0,n;
 		n=input.nextInt();
 		int arr[]=new int[n];
@@ -16,8 +17,7 @@ public class PinGeneration3 {
 				}
 			}
 		}
-		System.out.println(count+",");
-		
+		System.out.println(count);
 	}
 
 }
