@@ -1,8 +1,7 @@
 import java.util.Scanner;
 public class SkinAndFlesh {
-	public static Scanner input;
 	public static void main(String[] args) {
-		input=new Scanner(System.in);
+		Scanner input=new Scanner(System.in);
 		int a=input.nextInt();
 		int skin=1,flesh=0;
 		int arr[][]=new int[a][a];
