@@ -14,7 +14,7 @@ public class SkinAndFlesh {
 				System.out.print(skin+" ");
 				}
 				else {
-					System.out.print(flesh+" ");
+					System.out.print(flesh);
 				}
 			}
 			System.out.println();
