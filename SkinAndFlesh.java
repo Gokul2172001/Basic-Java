@@ -11,7 +11,7 @@ public class SkinAndFlesh {
 			{
 				if((i==0)||(j==0)||(i==a-1)||(j==a-1)) {
 					
-				System.out.print(skin+" ");
+				System.out.print(skin);
 				}
 				else {
 					System.out.print(flesh);
