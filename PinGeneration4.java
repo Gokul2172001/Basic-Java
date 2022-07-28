@@ -7,6 +7,7 @@ public class PinGeneration4 {
 		String[] inp2=input.PasrseInt();
 		String Builder inp3=inp1.trim(inp2);
 		String Builder inp4=toUppercase(inp3);
+		String arr[]=inp1.charAt();
 
 	}
 
