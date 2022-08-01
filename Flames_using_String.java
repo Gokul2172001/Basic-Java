@@ -2,7 +2,6 @@ import java.util.Scanner;
 public class Flames_using_String {
 	public static Scanner input;
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		input=new Scanner(System.in);
 		int count1,count2,count3;
 		String str1=input.nextLine();
@@ -22,8 +21,6 @@ public class Flames_using_String {
 		String str4=String.valueOf(arr2);
 		String str5=str3.trim();
 		String str6=str4.trim();
-		
-		//System.out.println(arr1[1]);
 		count1=str5.length();
 		count2=str6.length();
 		count3=count1+count2;
