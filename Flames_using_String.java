@@ -25,6 +25,19 @@ public class Flames_using_String {
 		count2=str6.length();
 		count3=count1+count2;
 		System.out.println(count3);
+		swith(count3) {
+			case1:System.out.println("Friend");
+			break;
+			case2:System.out.println("Lover");
+			break;
+			case3:System.out.println("Affection");
+			break;
+			case4:System.out.println("Marriage");
+			break;
+			case5:System.out.println("Enemy");
+			break;
+			default:System.out.println("Siblings");
+			break;
 	}
 
 }
