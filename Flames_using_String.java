@@ -37,7 +37,6 @@ public class Flames_using_String {
 			case5:System.out.println("Enemy");
 			break;
 			default:System.out.println("Siblings");
-			break;
 	}
 
 }
