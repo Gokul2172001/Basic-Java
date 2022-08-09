@@ -26,6 +26,7 @@ public class Flames_using_String {
 		count2=str6.length();
 		count3=count1+count2;
 		System.out.println(count3);
+		public static int validate(count3) {
 		swith(count3) {
 			case1:System.out.println("Friend");
 			break;
@@ -39,5 +40,6 @@ public class Flames_using_String {
 			break;
 			default:System.out.println("Siblings");
 	}
+		}
 
 }
