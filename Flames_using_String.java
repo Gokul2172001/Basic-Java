@@ -14,7 +14,6 @@ public class Flames_using_String {
 				if(arr1[i]==arr2[j]) {
 					arr1[i]=0;
 					arr2[i]=0;
-					
 				}
 			}			
 		}
