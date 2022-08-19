@@ -6,7 +6,6 @@ public class Flames_using_String {
 		int count1,count2,count3;
 		String str1=input.nextLine();
 		String str2=input.nextLine();
-		//After entering those strings then it converted into arrays.
 		char arr1[]=str1.toCharArray();
 		char arr2[]=str2.toCharArray();
 		for(int i=0;i<arr1.length;i++) {
