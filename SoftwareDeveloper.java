@@ -10,21 +10,21 @@ public class SoftwareDeveloper {
 		}
 		arr[j+1]=temp;
 	}
-	}
-	public static void getarray(String arr[], int n) {
-		Scanner input=new Scanner(System.in);
-		for(int i=0;i<n;i++) {
-			arr[i]=input.next();
+		}
+		public static void getarray(String arr[], int n) {
+			Scanner input=new Scanner(System.in);
+			for(int i=0;i<n;i++) {
+				arr[i]=input.next();
 		}
 	}
-	public static void main(String[] args) {
-		Scanner input=new Scanner(System.in);
-		int n=input.nextInt();
-		String arr[]=new String[n];
-		getarray(arr,n);
-		sort(arr,n);
-		for(int i=0;i<n;i++) {
-			System.out.println(arr[i]);
+		public static void main(String[] args) {
+			Scanner input=new Scanner(System.in);
+			int n=input.nextInt();
+			String arr[]=new String[n];
+			getarray(arr,n);
+			sort(arr,n);
+			for(int i=0;i<n;i++) {
+				System.out.println(arr[i]);
 		}
 	}
 
