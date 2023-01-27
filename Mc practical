@@ -1,0 +1,1692 @@
+
+
+CS 8662 MOBILE APPLICATION DEVELOPMENT LABORATORY 	L T P C
+     		     	 0 0 3 2
+
+LIST OF EXPERIMENTS:
+
+1.	Develop an application that uses GUI components, Font and Colors.
+2.	Develop an application that uses Layout Managers and event listeners. 
+3.	Write an application that draws basic graphical primitives on the screen.
+4.	Develop an application that makes use of databases.
+5.	Develop an application that makes use of Notification Manager. 
+6.	Implement an application that uses Multi threading.
+7.	Develop a native application that uses GPS location information. 
+8.	Implement an application that writes data to the SD card. 
+9.	Implement an application that creates an alert upon receiving a message. 
+10.	Write a mobile application that makes use of RSS Feed.
+11.	Develop a mobile application to send an email.
+12.	Develop a mobile application for simple needs(Mini Project)
+
+TOTAL: 45 Hours
+
+
+
+
+
+
+
+
+EX.NO:1 		Develop an application that uses GUI components font and colors
+Date:
+
+AIM:
+	 To develop a simple android application that uses GUI components, font and colors.
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no.1″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select the project.
+7.	Go to java->MainActivity.java and type the code.
+8.	Click Run button or press shift+F10 to run the project.
+
+Designing layout for the Android Application:
+1.	Click on app -> res -> layout -> activity_main.xml.
+2.	Now click on Design.
+
+
+
+
+
+
+
+
+
+
+Code for MainActivity.java:
+	package com.example.exno1;
+import android.graphics.Color;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity
+{
+    int ch=1;
+    float font=30;
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        final TextView t= (TextView) findViewById(R.id.idtxtview);
+        Button b1= (Button) findViewById(R.id.idbtn1);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                t.setTextSize(font);
+                font = font + 5;
+                if (font == 50)
+                    font = 30;
+            }
+        });
+        Button b2= (Button) findViewById(R.id.button2);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (ch) {
+                    case 1:
+                        t.setTextColor(Color.RED);
+                        break;
+                    case 2:
+                        t.setTextColor(Color.GREEN);
+                        break;
+                    case 3:
+                        t.setTextColor(Color.BLUE);
+                        break;
+                    case 4:
+                        t.setTextColor(Color.CYAN);
+                        break;
+                    case 5:
+                        t.setTextColor(Color.YELLOW);
+                        break;
+                    case 6:
+                        t.setTextColor(Color.MAGENTA);
+                        break;
+                }
+                ch++;
+                if (ch == 7)
+                    ch = 1;
+            }
+        });}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Output:
+
+
+ 
+
+
+
+
+Result:
+        Thus a simple android application that uses GUI components, font and colors is developed and executed successfully.
+
+
+
+
+
+EX.NO:2 		Develop an application that uses Layout Managers and Event Listeners. Date: 
+AIM:
+	 To develop a Simple Android Application that uses Layout Managers and Event Listeners.
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no.2″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select the project.
+7.	Go to java->MainActivity.java and type the code.
+8.	Click Run button or press shift+F10 to run the project.
+
+Creating Second Activity for the Android Application
+1.	Click on File -> New -> Activity -> Empty Activity.
+2.	Type the Activity Name as Second Activity and click Finish button.
+Designing layout for the Android Application:
+1.	Click on app -> res -> layout -> activity_main.xml.
+2.	Now click on Design.
+
+      
+
+
+
+
+
+
+Code for MainActivity.java:
+		package com.example.exno2;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+public class MainActivity extends AppCompatActivity {
+    //Defining the Views
+    EditText e1,e2;
+    Button bt;
+    Spinner s;
+    //Data for populating in Spinner
+    String [] dept_array={"CSE","ECE","IT","Mech","Civil"};
+    String name,reg,dept;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        //Referring the Views
+        e1= (EditText) findViewById(R.id.editText);
+        e2= (EditText) findViewById(R.id.editText2);
+        bt= (Button) findViewById(R.id.button);
+        s= (Spinner) findViewById(R.id.spinner);
+        //Creating Adapter for Spinner for adapting the data from array to Spinner
+        ArrayAdapter adapter = new ArrayAdapter (MainActivity.this,android.R.layout.simple_spinner_item,dept_array);
+        s.setAdapter(adapter);
+        //Creating Listener for Button
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Getting the Values from Views(Edittext & Spinner)
+                name=e1.getText().toString();
+                reg=e2.getText().toString();
+                dept=s.getSelectedItem().toString();
+                //Intent For Navigating to Second Activity
+                Intent i = new Intent(MainActivity.this,SecondActivity.class);
+                //For Passing the Values to Second Activity
+                i.putExtra("name_key", name);
+                i.putExtra("reg_key",reg);
+                i.putExtra("dept_key", dept);
+                startActivity(i);
+
+            }
+        });
+    }
+}
+
+
+Designing Layout for Second Activity:
+1.	Click on app -> res -> layout -> activity_second.xml.
+2.	Now click on Design.
+  
+Code for SecondActivity.java:
+
+package com.example.exno2;
+import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity ;
+//import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+public class SecondActivity extends AppCompatActivity {
+    TextView t1,t2,t3;
+    String name,reg,dept;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        t1= (TextView) findViewById(R.id.textView1);
+        t2= (TextView) findViewById(R.id.textView2);
+        t3= (TextView) findViewById(R.id.textView3);
+        //Getting the Intent
+        Intent i = getIntent();
+        //Getting the Values from First Activity using the Intent received
+        name=i.getStringExtra("name_key");
+        reg=i.getStringExtra("reg_key");
+        dept=i.getStringExtra("dept_key");
+        //Setting the Values to Intent
+        t1.setText(name);
+        t2.setText(reg);
+        t3.setText(dept);
+
+    }
+}
+
+
+
+
+
+
+Output:
+
+  
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Result:
+	Thus a Simple Android Application that uses Layout Managers and Event Listeners is developed and executed successfully.
+
+EX.NO:3		Write an application that draws basic graphical primitives on the screen.
+Date:
+
+AIM:
+	 To develop a Simple Android Application that draws basic Graphical Primitives on the screen. 
+
+ALGORITHM:
+
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no.3″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select the project.
+7.	Go to java->MainActivity.java and type the code.
+8.	Click Run button or press shift+F10 to run the project.
+
+Designing layout for the Android Application:
+
+1.	Click on app -> res -> layout -> activity_main.xml.
+2.	Now click on Design.
+
+
+
+
+
+
+
+
+
+
+
+
+Code for MainActivity.java:
+package com.example.exno3;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
+import android.widget.ImageView;
+public class Main Activity extends Activity
+{    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {  super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        //Creating a Bitmap
+        Bitmap bg = Bitmap.createBitmap(720, 1280, Bitmap.Config.ARGB_8888);
+        //Setting the Bitmap as background for the ImageView
+        ImageView i = (ImageView) findViewById(R.id.idimgve);
+        i.setBackgroundDrawable(new BitmapDrawable(bg));
+        //Creating the Canvas Object
+        Canvas canvas = new Canvas(bg);
+        //Creating the Paint Object and set its color & TextSize
+        Paint paint = new Paint();
+        paint.setColor(Color.BLUE);
+        paint.setTextSize(50);
+        //To draw a Rectangle
+        canvas.drawText("Rectangle", 420, 150, paint);
+        canvas.drawRect(400, 200, 650, 700, paint);
+        //To draw a Circle
+        canvas.drawText("Circle", 120, 150, paint);
+        canvas.drawCircle(200, 350, 150, paint);
+        //To draw a Square
+        canvas.drawText("Square", 120, 800, paint);
+        canvas.drawRect(50, 850, 350, 1150, paint);
+        //To draw a Line
+        canvas.drawText("Line", 480, 800, paint);
+        canvas.drawLine(520, 850, 520, 1150, paint); }}
+
+
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+Result:
+
+Thus a Simple Android Application that draws basic Graphical Primitives on the screen is developed and executed successfully.
+
+EX.NO:4		Develop an application that makes use of databases
+Date: 
+
+
+AIM:
+To develop a Simple Android Application that makes use of Database.
+Algorithm:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no.4″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select the project.
+7.	Go to java->MainActivity.java and type the code.
+8.	Click Run button or press shift+F10 to run the project.
+
+Designing layout for the Android Application:
+1.	Click on app -> res -> layout -> activity_main.xml.
+2.	Now click on Design.  
+
+
+
+
+
+
+
+
+
+
+
+Code for MainActivity.java:
+package com.example.exno4;
+import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends Activity implements OnClickListener
+{
+    EditText Rollno,Name,Marks;
+    Button Insert,Delete,Update,View,ViewAll;
+    SQLiteDatabase db;
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Rollno=(EditText)findViewById(R.id.Rollno);
+        Name=(EditText)findViewById(R.id.Name);
+        Marks=(EditText)findViewById(R.id.Marks);
+        Insert=(Button)findViewById(R.id.Insert);
+        Delete=(Button)findViewById(R.id.Delete);
+        Update=(Button)findViewById(R.id.Update);
+        View=(Button)findViewById(R.id.View);
+        ViewAll=(Button)findViewById(R.id.ViewAll);
+        Insert.setOnClickListener(this);
+        Delete.setOnClickListener(this);
+        Update.setOnClickListener(this);
+        View.setOnClickListener(this);
+        ViewAll.setOnClickListener(this);
+        // Creating database and table
+        db=openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS student(rollno VARCHAR,name VARCHAR,marks VARCHAR);");
+    }
+    public void onClick(View view)
+    {
+        // Inserting a record to the Student table
+        if(view==Insert)
+        {
+            // Checking for empty fields
+            if(Rollno.getText().toString().trim().length()==0||
+                    Name.getText().toString().trim().length()==0||
+                    Marks.getText().toString().trim().length()==0)
+            {
+                showMessage("Error", "Please enter all values");
+                return;
+            }
+            db.execSQL("INSERT INTO student VALUES('"+Rollno.getText()+"','"+Name.getText()+
+                    "','"+Marks.getText()+"');");
+            showMessage("Success", "Record added");
+            clearText();
+        }
+        // Deleting a record from the Student table
+        if(view==Delete)
+        {
+            // Checking for empty roll number
+            if(Rollno.getText().toString().trim().length()==0)
+            {
+                showMessage("Error", "Please enter Rollno");
+                return;
+            }
+            Cursor c=db.rawQuery("SELECT * FROM student WHERE rollno='"+Rollno.getText()+"'", null);
+            if(c.moveToFirst())
+            {
+                db.execSQL("DELETE FROM student WHERE rollno='"+Rollno.getText()+"'");
+                showMessage("Success", "Record Deleted");
+            }
+            else
+            {
+                showMessage("Error", "Invalid Rollno");
+            }
+            clearText();
+        }
+        // Updating a record in the Student table
+        if(view==Update)
+        {
+            // Checking for empty roll number
+            if(Rollno.getText().toString().trim().length()==0)
+            {
+                showMessage("Error", "Please enter Rollno");
+                return;
+            }
+            Cursor c=db.rawQuery("SELECT * FROM student WHERE rollno='"+Rollno.getText()+"'", null);
+            if(c.moveToFirst()) {
+                db.execSQL("UPDATE student SET name='" + Name.getText() + "',marks='" + Marks.getText() +
+                        "' WHERE rollno='"+Rollno.getText()+"'");
+                showMessage("Success", "Record Modified");
+            }
+            else {
+                showMessage("Error", "Invalid Rollno");
+            }
+            clearText();
+        }
+        // Display a record from the Student table
+        if(view==View)
+        {
+            // Checking for empty roll number
+            if(Rollno.getText().toString().trim().length()==0)
+            {
+                showMessage("Error", "Please enter Rollno");
+                return;
+            }
+            Cursor c=db.rawQuery("SELECT * FROM student WHERE rollno='"+Rollno.getText()+"'", null);
+            if(c.moveToFirst())
+            {
+                Name.setText(c.getString(1));
+                Marks.setText(c.getString(2));
+            }
+            else
+            {
+                showMessage("Error", "Invalid Rollno");
+                clearText();
+            }
+        }
+        // Displaying all the records
+        if(view==ViewAll)
+        {
+            Cursor c=db.rawQuery("SELECT * FROM student", null);
+            if(c.getCount()==0)
+            {
+                showMessage("Error", "No records found");
+                return;
+            }
+            StringBuffer buffer=new StringBuffer();
+            while(c.moveToNext())
+            {
+                buffer.append("Rollno: "+c.getString(0)+"\n");
+                buffer.append("Name: "+c.getString(1)+"\n");
+                buffer.append("Marks: "+c.getString(2)+"\n\n");
+            }
+            showMessage("Student Details", buffer.toString());
+        }
+    }
+    public void showMessage(String title,String message)
+    {
+        Builder builder=new Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
+    public void clearText()
+    {
+        Rollno.setText("");
+        Name.setText("");
+        Marks.setText("");
+        Rollno.requestFocus(); 
+	}
+} 
+
+	   }
+	}
+
+
+Output:
+  
+
+ 
+Result:
+Thus a Simple Android Application that makes use of Database is developed and executed successfully.
+			
+EX.NO:5		Develop an application that makes use of Notification Manager
+Date: 
+
+AIM:
+To develop an application that makes use of Notification Manager
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no.5″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select the project.
+7.	Go to java->MainActivity.java and type the code.
+8.	Click Run button or press shift+F10 to run the project.
+
+Designing layout for the Android Application:
+1.	Click on app -> res -> layout -> activity_main.xml.
+2.	Now click on Design  
+
+
+
+
+
+
+
+
+
+
+
+
+Code for MainActivity.java:
+package com.example.exno5;
+import androidx.appcompat.app.AppCompatActivity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+Button btn_simple, btn_bigtext, btn_bigpicture, btn_inbox, btn_messaging, btn_actions;
+@Override
+public void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+//init buttons
+btn_simple = (Button) findViewById(R.id.simpleNot);
+btn_bigtext = (Button) findViewById(R.id.bigtextNot);
+btn_bigpicture = (Button) findViewById(R.id.bigpictureNot);
+btn_inbox = (Button) findViewById(R.id.inboxNot);
+btn_messaging = (Button) findViewById(R.id.messagingNot);
+btn_actions = (Button) findViewById(R.id.actionNot);
+
+}
+@Override
+public void onClick(View v) {
+switch(v.getId()){
+case R.id.simpleNot:
+simple_Notification();
+break;
+case R.id.bigtextNot:big_textstyle_Notification();
+break;
+case R.id.bigpictureNot:
+big_picturestyle_Notification();
+break;
+case R.id.inboxNot:
+inboxstyle_Notification();
+break;
+case R.id.messagingNot:
+messagingstyle_Notification();
+break;	
+case R.id.actionNot:
+notification_Actions();
+break;
+}
+}
+private void simple_Notification() {
+//declare an id for your notification
+//id is used in many things especially when setting action buttons and their intents
+int notificationId = 0;
+//init notification and declare specifications
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+.setSmallIcon(R.drawable.logo)
+.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo))
+.setContentTitle("Android Development Course")
+.setContentText("Become an Android Developer.")
+.setAutoCancel(true)
+.setDefaults(NotificationCompat.DEFAULT_ALL)
+//set a tone when notification appears
+Uri path =
+RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+builder.setSound(path);
+
+//call notification manager so it can build and deliver the notification to the OS
+NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+//Android 8 introduced a new requirement of setting the channelId property by using a NotificationChannel.
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) 
+{
+String channelId = "YOUR_CHANNEL_ID";
+NotificationChannel channel = new NotificationChannel(channelId,
+"Channel human readable title",
+NotificationManager.IMPORTANCE_DEFAULT);
+notificationManager.createNotificationChannel(channel);
+builder.setChannelId(channelId);
+}
+notificationManager.notify(notificationId,builder.build());
+}
+private void big_textstyle_Notification() {
+int notificationId = 1;
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+builder.setSmallIcon(R.drawable.logo)
+.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo))
+.setContentTitle("Molana Rumi")
+//set the style of your notification and pass parameters for any specific style
+.setStyle(new NotificationCompat.BigTextStyle().bigText(getResources().getString(R.string.rumi_quote)))
+.setAutoCancel(true);
+Uri path = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+builder.setSound(path);
+NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) 
+{
+String channelId = "YOUR_CHANNEL_ID";
+NotificationChannel channel = new NotificationChannel(channelId,"Channel human readable title",NotificationManager.IMPORTANCE_DEFAULT);
+notificationManager.createNotificationChannel(channel);
+builder.setChannelId(channelId);
+}
+notificationManager.notify(notificationId, builder.build());
+}
+private void big_picturestyle_Notification() 
+{
+int notificationId = 2;
+Bitmap picture = BitmapFactory.decodeResource(getResources(), R.drawable.nanga_parbat);
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+builder.setSmallIcon(R.drawable.logo)
+.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo))
+.setContentTitle("Fairy Meadows")
+//style = BigPictureStyle
+.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(picture))
+.setAutoCancel(true);
+Uri path = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+builder.setSound(path);
+NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+String channelId = "YOUR_CHANNEL_ID";
+NotificationChannel channel = new NotificationChannel(channelId,"Channel human readable title",NotificationManager.IMPORTANCE_DEFAULT);
+notificationManager.createNotificationChannel(channel);
+builder.setChannelId(channelId);
+}
+
+notificationManager.notify(notificationId, builder.build());
+}
+private void inboxstyle_Notification() {
+int notificationId = 3;
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+builder.setSmallIcon(R.drawable.logo).setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo))
+
+//to u can add lines with different number of messages arrived.setStyle(new NotificationCompat.InboxStyle().addLine("Hello").addLine("Are you there?").setBigContentTitle("2 New Messages for you").setSummaryText("Inbox")).setAutoCancel(true);
+
+Uri path = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+builder.setSound(path);
+
+NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+String channelId = "YOUR_CHANNEL_ID";
+NotificationChannel channel = new NotificationChannel(channelId,"Channel human readable title",NotificationManager.IMPORTANCE_DEFAULT);
+notificationManager.createNotificationChannel(channel);
+builder.setChannelId(channelId);
+}
+
+notificationManager.notify(notificationId, builder.build());
+}
+
+private void messagingstyle_Notification() {
+int notificationId = 4;
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+builder.setSmallIcon(R.drawable.logo)
+.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo))
+.setStyle(newNotificationCompat.MessagingStyle("Ali:").setConversationTitle("Q&A Group").addMessage("This type of notification was introduced in Android N. Right?",0,"Umar: ").addMessage("Yes",0,null).addMessage("The constructor is passed with the name of the current user. Right?",0,"Bilal: ").addMessage("True",0,null)).setAutoCancel(true);
+
+Uri path = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+builder.setSound(path);
+
+NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+String channelId = "YOUR_CHANNEL_ID";
+NotificationChannel channel = new NotificationChannel(channelId,"Channel human readable title",NotificationManager.IMPORTANCE_DEFAULT);
+notificationManager.createNotificationChannel(channel);
+builder.setChannelId(channelId);
+}
+
+notificationManager.notify(notificationId, builder.build());
+}
+
+private void notification_Actions() {
+int notificationId = 5;
+//init notification
+NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+.setSmallIcon(R.drawable.logo).setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.logo)).setContentTitle("Action Buttons").setStyle(new NotificationCompat.BigTextStyle().bigText("Click view to visit Google.")).setAutoCancel(true).setDefaults(NotificationCompat.DEFAULT_ALL;
+
+//the actions in a notification are handeled through intents
+Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
+PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0); builde	r.addAction(android.R.drawable.ic_menu_view, "VIEW", pendingIntent);
+Uri path = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+builder.setSound(path);
+
+NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+String channelId = "YOUR_CHANNEL_ID";
+NotificationChannel channel = new NotificationChannel(channelId,"Channel human readable title",NotificationManager.IMPORTANCE_DEFAULT);
+notificationManager.createNotificationChannel(channel);
+builder.setChannelId(channelId);
+}
+
+notificationManager.notify(notificationId,builder.build());
+}
+}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+Output:
+
+
+ 
+
+ 
+
+Result:
+Thus a Simple Android Application that makes use of notification manager is developed and executed successfully.
+
+EX.NO:6		Android Application that implements Multi threading
+Date:
+AIM:
+	 To develop an Android Application that implements Multi threading.
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no:6″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select the project.
+7.	Go to java->MainActivity.java and type the code.
+8.	Click Run button or press shift+F10 to run the project.
+
+Designing layout for the Android Application:
+1.	Click on app -> res -> layout -> activity_main.xml.
+2.	Now click on Design.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code for MainActivity.java:
+package com.example.exno6;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+public class MainActivity extends AppCompatActivity
+{
+    ImageView img;
+    Button bt1,bt2;
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        bt1 = (Button)findViewById(R.id.button);
+        bt2= (Button) findViewById(R.id.button2);
+        img = (ImageView)findViewById(R.id.idimgview);
+        bt1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                new Thread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        img.post(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                img.setImageResource(R.drawable.india1);
+                            }
+                        });
+                    }
+                }).start();
+            }
+        });
+
+        bt2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                new Thread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        img.post(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                img.setImageResource(R.drawable.india2);
+                            }
+                        });
+                    }
+                }).start();
+            }
+        });
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Output:
+
+  
+
+
+ 
+Result:
+Thus Android Application that implements Multi threading is developed and executed successfully.
+	
+EX.NO:7		Develop a native application that uses GPS location information
+Date:
+AIM:
+	 To develop an Android Application that uses GPS location information.
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no:7″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select our project.
+7.	Go to res -> layout folder and open activity_main.xml in design view.
+8.	Add TextView and add text as " Do you want a fine accuracy or not?”.
+9.	Add another TextView and add text as "coarse accuracy selected (default)".
+10.	Create checkbox to check “fine accuracy”.
+11.	Create “OK” button and add two more TextView buttons for Latitude and Longitude.
+12.	Go to java->MainActivity.java and type the code below.
+13.	Click Run button or press shift+F10 to run the project..
+
+Designing layout for the Android Application:
+•	Click on app -> res -> layout -> activity_main.xml.
+•	Now click on Design.
+
+
+
+
+
+
+
+
+
+Code for MainActivity.java:
+package com.example.exno7;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.provider.Settings;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+public class MainActivity extends AppCompatActivity {
+    private TextView latitude;
+    private TextView longitude;
+    private TextView choice;
+    private Checkbox fineAcc;
+    private Button choose;
+    private TextView provText;
+    private LocationManager locationManager;
+    private String provider;
+    private MyLocationListener mylistener;
+    private Criteria criteria;
+
+    /** Called when the activity is first created. */
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        latitude = (TextView) findViewById(R.id.lat);
+        longitude = (TextView) findViewById(R.id.lon);
+        provText = (TextView) findViewById(R.id.provText);
+        choice = (TextView) findViewById(R.id.choice);
+        fineAcc = (CheckBox) findViewById(R.id.fineAccuracy);
+        choose = (Button) findViewById(R.id.chooseRadio);
+
+// Get the location manager
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+// Define the criteria how to select the location provider
+        criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_COARSE);  //default
+
+        // user defines the criteria
+        choose.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+// TODO Auto-generated method stub
+                if(fineAcc.isChecked()){
+                    criteria.setAccuracy(Criteria.ACCURACY_FINE);
+                    choice.setText("fine accuracy selected");
+                }else {
+                    criteria.setAccuracy(Criteria.ACCURACY_COARSE);
+                    choice.setText("coarse accuracy selected");
+                }
+            }
+        });
+        criteria.setCostAllowed(false);
+// get the best provider depending on the criteria
+        provider = locationManager.getBestProvider(criteria, false);
+
+// the last known location of this provider
+        Location location = locationManager.getLastKnownLocation(provider);
+
+        mylistener = new MyLocationListener();
+
+        if (location != null) {
+            mylistener.onLocationChanged(location);
+        } else {
+// leads to the settings because there is no last known location
+            Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(intent);
+        }
+// location updates: at least 1 meter and 200millsecs change
+        locationManager.requestLocationUpdates(provider, 200, 1, mylistener);
+    }
+
+    private class MyLocationListener implements LocationListener {
+
+        @Override
+        public void onLocationChanged(Location location) {
+// Initialize the location fields
+            latitude.setText("Latitude: "+String.valueOf(location.getLatitude()));
+            longitude.setText("Longitude: "+String.valueOf(location.getLongitude()));
+            provText.setText(provider + " provider has been selected.");
+
+            Toast.makeText(MainActivity.this,  "Location changed!",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+            Toast.makeText(MainActivity.this, provider + "'s status changed to "+status +"!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        @Override
+        public void onProviderEnabled(String provider) {
+            Toast.makeText(MainActivity.this, "Provider " + provider + " enabled!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        @Override
+        public void onProviderDisabled(String provider) {
+            Toast.makeText(MainActivity.this, "Provider " + provider + " disabled!",
+                    Toast.LENGTH_SHORT).show();
+        }     }
+
+}
+
+
+
+Output:
+ 
+
+ 
+Result:
+Thus Android Application that uses GPS location information is developed and executed successfully.
+
+EX.NO:8		Develop an android application that uses writes data to the SD Card
+Date:
+AIM:
+	 To develop an Android Application that writes data to the SD Card.
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no:8″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select our project.
+7.	Go to res -> layout folder and open activity_main.xml in design view.
+8.	Add 2 EditText boxes. One is for file location and another one is for content.
+9.	Add 2 Buttons called “Read” and “Save”.
+10.	Go to java->MainActivity.java and type the code.
+11.	Click Run button or press shift+F10 to run the project.
+
+Designing layout for the Android Application:
+1.	Click on app -> res -> layout -> activity_main.xml.
+2.	Now click on Design.
+
+Adding permissions in Manifest for the Android Application:
+1.	Click on app -> manifests -> AndroidManifest.xml.
+
+
+
+
+
+
+
+
+Code for AndroidManifest.xml:
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.example.exno8" >
+    <dist:module dist:instant="true" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="exno8"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+
+Code for MainActivity.java:
+package com.example.exno8;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+
+public class MainActivity extends AppCompatActivity
+{
+    EditText e1;
+    Button write,read,clear;
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        e1= (EditText) findViewById(R.id.editText);
+        write= (Button) findViewById(R.id.button);
+        read= (Button) findViewById(R.id.button2);
+        clear= (Button) findViewById(R.id.button3);
+
+        write.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String message=e1.getText().toString();
+                try
+                {
+                    File f=new File("/sdcard/myfile.txt");
+                    f.createNewFile();
+                    FileOutputStream fout=new FileOutputStream(f);
+                    fout.write(message.getBytes());
+                    fout.close();
+                    Toast.makeText(getBaseContext(),"Data Written in SDCARD",Toast.LENGTH_LONG).show();
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(getBaseContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        read.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String message;
+                String buf = "";
+                try
+                {
+                    File f = new File("/sdcard/myfile.txt");
+                    FileInputStream fin = new FileInputStream(f);
+                    BufferedReader br = new BufferedReader(new InputStreamReader(fin));
+                    while ((message = br.readLine()) != null)
+                    {
+                        buf += message;
+                    }
+                    e1.setText(buf);
+                    br.close();
+                    fin.close();
+                    Toast.makeText(getBaseContext(),"Data Recived from SDCARD",Toast.LENGTH_LONG).show();
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(getBaseContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        clear.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                e1.setText("");
+            }
+        });
+    }
+}
+
+
+
+
+
+Output:
+
+   
+
+  
+
+Result:
+Thus Android Application that writes data to the SD Card is developed and executed successfully.
+ 
+EX.NO:9	 Implement an application that creates an alert upon receiving a message
+Date:
+AIM:
+	 To develop an Android Application that creates an alert upon receiving a message.
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no:9″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select our project.
+7.	Go to res -> layout folder and open activity_main.xml in design view.
+8.	Add TextView as “alert message”.
+9.	Go to java->MainActivity.java and type the code below.
+10.	Click Run button or press shift+F10 to run the project.
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code for MainActivity.java:
+package com.example.exno9;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+public class MainActivity extends AppCompatActivity{
+    Button notify;
+    EditText e;
+    @Override
+    protected void onCreate(Bundle savedInstanceState)    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        notify= (Button) findViewById(R.id.button);
+        e= (EditText) findViewById(R.id.editText);
+        notify.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                PendingIntent pending = PendingIntent.getActivity(MainActivity.this, 0,            intent, 0);
+                Notification noti = new Notification.Builder(MainActivity.this).setContentTitle("New Message").setContentText(e.getText().toString()).setSmallIcon(R.mipmap.ic_launcher).setContentIntent(pending).build();
+                NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                noti.flags |= Notification.FLAG_AUTO_CANCEL;
+                manager.notify(0, noti);
+            }
+        });
+    }
+}
+
+Output:
+ 
+
+ 
+Result:
+	Thus Android Application that creates an alert upon receiving a message is developed and executed successfully.
+EX.NO:10			Write a mobile application that makes use of RSS Feed
+Date:
+AIM:
+	 To develop an Android Application that makes use of RSS Feed.
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “ex.no:10″ and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select our project.
+7.	Go to app-> res -> layout folder and open main.xml in design view.
+8.	Add Linear_layout.xml and rss_item files. 
+9.	Insert ListView in Linear_layout.xml.
+10.	Go to app -> manifests -> AndroidManifest.xml
+11.	Make the internet permissions in the AndroidManifest.xml file and type the code
+12.	Go to java->MainActivity.java and type the code.
+13.	Click Run button or press shift+F10 to run the project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code for AndroidManifest.xml:
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.exno10rss">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+
+Code for MainActivity.java:
+package com.example.exno10rss;
+import androidx.appcompat.app.AppCompatActivity;
+import android.app.ListActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends ListActivity
+{
+    List headlines;
+    List links;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        new MyAsyncTask().execute();
+    }
+
+    class MyAsyncTask extends AsyncTask<Object,Void,ArrayAdapter>
+    {
+        @Override
+        protected ArrayAdapter doInBackground(Object[] params)
+        {
+            headlines = new ArrayList();
+            links = new ArrayList();
+            try
+            {
+                URL url = new URL("https://codingconnect.net/feed");
+                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                factory.setNamespaceAware(false);
+                XmlPullParser xpp = factory.newPullParser();
+
+                // We will get the XML from an input stream
+                xpp.setInput(getInputStream(url), "UTF_8");
+                boolean insideItem = false;
+
+                // Returns the type of current event: START_TAG, END_TAG, etc..
+                int eventType = xpp.getEventType();
+                while (eventType != XmlPullParser.END_DOCUMENT)
+                {
+                    if (eventType == XmlPullParser.START_TAG)
+                    {
+                        if (xpp.getName().equalsIgnoreCase("item"))
+                        {
+                            insideItem = true;
+                        }
+                        else if (xpp.getName().equalsIgnoreCase("title"))
+                        {
+                            if (insideItem)
+                                headlines.add(xpp.nextText()); //extract the headline
+                        }
+                        else if (xpp.getName().equalsIgnoreCase("link"))
+                        {
+                            if (insideItem)
+                                links.add(xpp.nextText()); //extract the link of article
+                        }
+                    }
+                    else if(eventType==XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item"))
+                    {
+                        insideItem=false;
+                    }
+                    eventType = xpp.next(); //move to next element
+                }
+
+            }
+            catch (MalformedURLException e)
+            {
+                e.printStackTrace();
+            }
+            catch (XmlPullParserException e)
+            {
+                e.printStackTrace();
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        protected void onPostExecute(ArrayAdapter adapter)
+        {
+            adapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, headlines);
+            setListAdapter(adapter);
+        }
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id)
+    {
+        Uri uri = Uri.parse((links.get(position)).toString());
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+
+    public InputStream getInputStream(URL url)
+    {
+        try
+        {
+            return url.openConnection().getInputStream();
+        }
+        catch (IOException e)
+        {
+            return null;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Output:
+ 
+
+ 
+
+
+Result:
+Thus Android Application that makes use of RSS Feed is developed and executed successfully.
+
+
+
+EX.NO:11			Develop a mobile application to send an E-Mail
+Date:
+AIM:
+	 To develop an Android Mobile Application to send an E-Mail.
+ALGORITHM:
+Creating a New project:
+1.	Open Android Studio and then click on File -> New -> New project.
+2.	Then type the Application name as “Send E-Mail” and click Next. 
+3.	Then select the Minimum SDK as shown below and click next.
+4.	Then select the Empty Activity and click next.
+5.	Finally click Finish.
+6.	Go to package explorer in the left hand side. Select our project.
+7.	Go to app-> res -> layout folder and open main.xml in design view.
+8.	Go to java->MainActivity.java and type the code.
+9.	Click Run button or press shift+F10 to run the project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code for MainActivity.java:
+package com.example.sendemail;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+    EditText etTo, etSub, etMsg;
+    Button btSend;
+    String to, subject, message;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        etTo = (EditText) findViewById(R.id.etTo);
+        etSub = (EditText) findViewById(R.id.etSub);
+        etMsg = (EditText) findViewById(R.id.etMsg);
+        btSend = (Button) findViewById(R.id.btSend);
+        btSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                to = etTo.getText().toString();
+                subject = etSub.getText().toString();
+                message = etMsg.getText().toString();
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{ to});
+                email.putExtra(Intent.EXTRA_SUBJECT, subject);
+                email.putExtra(Intent.EXTRA_TEXT, message);
+                //need this to prompts email client only
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Choose Email client :"));
+            }
+        });
+    }
+}
+
+
+
+Output:
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+
+
+
+
+
+
+
+Result:
+Thus Android Application that makes use of RSS Feed is developed and executed successfully.
